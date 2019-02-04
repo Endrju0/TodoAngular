@@ -1,190 +1,196 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background-color: #1abc9c;
-    font-family: 'Roboto', sans-serif;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #1abc9c;
+  font-family: 'Roboto', sans-serif;
+}
 
-  * {
-    box-sizing: border-box;
-  }
+* {
+  box-sizing: border-box;
+}
 
- //----------LIST----------
+//----------LIST----------
 .del-btn {
-    height: 20px;
-    width: 20px;
-    margin: 0 20px;
-    position: absolute;
-    z-index: 1;
-    top: 50% - 55px;
-    left: 93%;
-    overflow: visible;
-    font-size: 50px;
-    color: #ff0000;
-    background: none;
-    border: none;
-  }
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  margin: 15px 10px;
+  position: absolute;
+  z-index: 1;
+  top: 50% - 55px;
+  left: calc(100% + 10px);
+  font-size: 50px;
+  text-align: center;
+  line-height: 35px;
+  color: #1abc9c;
+  background: #ff0000;
+  border: none;
+  border-radius: 100%;
+  -webkit-box-shadow: 7px 9px 51px -4px rgba(0,0,0,1);
+  -moz-box-shadow: 7px 9px 51px -4px rgba(0,0,0,1);
+  box-shadow: 7px 9px 51px -4px rgba(0,0,0,1);
+}
 
 .new-task {
-    border: none;
-    height: 40px;
-    padding: 10px;
-    border-bottom: 1px solid;
-    font-size: 20px;
-  }
+  border: none;
+  border-radius: 6px 6px 0 0;
+  height: 40px;
+  padding: 10px;
+  border-bottom: 1px solid;
+  font-size: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+  width: 600px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 10px 10px 0 0 rgba(0,0,0,0.2);
+  list-style: none;
   
-  .list {
-    display: flex;
-    flex-direction: column;
+  .list-item {
     margin: 0;
-    margin-bottom: 30px;
     padding: 0;
-    width: 600px;
-    background-color: #fff;
-    border-radius: 6px;
-    box-shadow: 10px 10px 0 0 rgba(0,0,0,0.2);
-    list-style: none;
-    overflow: hidden;
+    border-bottom: 1px solid #ecf0f1;
+    position: relative;
     
-    .list-item {
-      margin: 0;
-      padding: 0;
-      border-bottom: 1px solid #ecf0f1;
-      position: relative;
-      
-      &:last-child {
-        border: 0;
-      }
+    &:last-child {
+      border: 0;
     }
   }
+}
+
+// hide the checkbox
+.hidden-box {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  appearance: none;
+  opacity: 0;
+}
+
+.check--label {
+  font-size: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.check--label-box {
+  display: flex;
+  align-self: center;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin: 0 20px;
+  border: 2px solid #3498db;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.check--label-text {
+  display: flex;
+  align-self: center;
+  position: relative;
+  cursor: pointer;
+  padding: 20px;
+  border-left: 1px solid #ecf0f1;
   
-  // hide the checkbox
-  .hidden-box {
+  &:after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #000;
     position: absolute;
-    top: -9999px;
-    left: -9999px;
-    appearance: none;
-    opacity: 0;
+    top: 50%;
+    left: 7.5%;
+    transform: translateY(-50%);
+    transition: width 100ms ease-in-out;
   }
-  
-  .check--label {
-    font-size: 20px;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
+}
+
+// the magic
+.hidden-box:checked + .check--label {
+  background-color: #F9F9F9;
   .check--label-box {
-    display: flex;
-    align-self: center;
-    position: relative;
-    height: 20px;
-    width: 20px;
-    margin: 0 20px;
-    border: 2px solid #3498db;
-    border-radius: 2px;
-    cursor: pointer;
-  }
-  .check--label-text {
-    display: flex;
-    align-self: center;
-    position: relative;
-    cursor: pointer;
-    padding: 20px;
-    border-left: 1px solid #ecf0f1;
-    
-    &:after {
+    background-color: #3498db;
+     &:after {
       content: '';
       display: block;
-      width: 0%;
-      height: 2px;
-      background-color: #000;
       position: absolute;
-      top: 50%;
-      left: 7.5%;
-      transform: translateY(-50%);
-      transition: width 100ms ease-in-out;
+      top: -1px;
+      left: 4px;
+      width: 6px;
+      height: 12px;
+      border: solid #000;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
     }
   }
-  
-  // the magic
-  .hidden-box:checked + .check--label {
-    background-color: #F9F9F9;
-    .check--label-box {
-      background-color: #3498db;
-       &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: -1px;
-        left: 4px;
-        width: 6px;
-        height: 12px;
-        border: solid #000;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-      }
-    }
-    .check--label-text {
-      &:after {
-        width: 85%;
-      }
+  .check--label-text {
+    &:after {
+      width: 85%;
     }
   }
+}
 
 //----------BUTTON----------
 .flat-button {
-    position: relative;
-    width: 200px;
-    height: 50px;
-    background: rgb(248, 223, 0);
-    margin: 0 0;
-    overflow: hidden;
-    z-index: 1;
-    cursor: pointer;
-    transition: color .3s;
-    /* Typo */
-    line-height: 60px;
-    text-align: center;
-    color: #fff;
-  }
+  position: relative;
+  width: 200px;
+  height: 50px;
+  background: rgb(248, 223, 0);
+  margin: 0 0;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  transition: color .3s;
+  /* Typo */
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+}
 .flat-button:after {
-    position: absolute;
-    top: 90%; left: 0;
-    width: 100%; height: 100%;
-    background:rgb(197, 184, 0);
-    content: "";
-    z-index: -2;
-    transition: transform .3s;
-  }
-  
-  .flat-button:hover::after {
-    font-family: 'Montserrat', sans-serif;
-    transform: translateY(-80%);
-    transition: transform .3s;
-  }
+  position: absolute;
+  top: 90%; left: 0;
+  width: 100%; height: 100%;
+  background:rgb(197, 184, 0);
+  content: "";
+  z-index: -2;
+  transition: transform .3s;
+}
+
+.flat-button:hover::after {
+  font-family: 'Montserrat', sans-serif;
+  transform: translateY(-80%);
+  transition: transform .3s;
+}
 
 //----------NAV----------
 .nav {
-    display: flex; 
-    flex-direction: row;
-    justify-content: space-between;
-    width: 600px;
-    height: 60px;
-    padding: 5px;
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
+  width: 600px;
+  height: 60px;
+  padding: 5px;
 }
 
 #title {
-    color: rgb(248, 223, 0);
-    font-size: 40px;
-    text-shadow: 1px 1px black;
+  color: rgb(248, 223, 0);
+  font-size: 40px;
+  text-shadow: 1px 1px black;
 }
