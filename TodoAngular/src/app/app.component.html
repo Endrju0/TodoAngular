@@ -1,0 +1,16 @@
+<div class="nav">
+  <div id="title">{{title}}</div> 
+  <div class="flat-button" (click)="addTask(newTodo.value); newTodo.value=''">Add</div>
+</div>
+
+<ul class="list">
+  <input type="text" class="new-task" placeholder="New task" maxlength="40" #newTodo />   
+  <li class="list-item" *ngFor="let task of tasks">
+    <input (click)="changeStatus(task)" type="checkbox" class="hidden-box" id="{{task.id}}" [checked]="task.status"/>
+    <label for="{{task.id}}" class="check--label">
+      <span class="check--label-box"></span>
+      <span class="check--label-text">{{task.label}}</span>
+    </label>
+    <button class="del-btn " (click)="deleteTask(task)">&#9447;</button>
+  </li>
+</ul>
