@@ -1,15 +1,15 @@
 {
   "tasks": [
-    { "id": 1, "title": "Make Bed", "completed": "false" },
-    { "id": 2, "title": "Breakfast", "completed": "true" },
-    { "id": 3, "title": "Wash face", "completed": "false" },
-    { "id": 4, "title": "Check email", "completed": "false" },
-    { "id": 5, "title": "Reading", "completed": "true" },
-    { "id": 6, "title": "Hit the gym", "completed": "true" },
-    { "id": 7, "title": "Shower", "completed": "false" },
-    { "id": 8, "title": "Piano", "completed": "false" },
-    { "id": 9, "title": "Feed Doggo", "completed": "true" },
-    { "id": 10, "title": "Call Susan", "completed": "false" },
-    { "id": 11, "title": "Clear plates", "completed": "true" }
+    { "id": 1, "title": "Make Bed", "completed": false },
+    { "id": 2, "title": "Breakfast", "completed": true },
+    { "id": 3, "title": "Wash face", "completed": false },
+    { "id": 4, "title": "Check email", "completed": false },
+    { "id": 5, "title": "Reading", "completed": true },
+    { "id": 6, "title": "Hit the gym", "completed": true },
+    { "id": 7, "title": "Shower", "completed": false },
+    { "id": 8, "title": "Piano", "completed": false },
+    { "id": 9, "title": "Feed Doggo", "completed": true },
+    { "id": 10, "title": "Call Susan", "completed": false },
+    { "id": 11, "title": "Clear plates", "completed": true }
   ]
 }
